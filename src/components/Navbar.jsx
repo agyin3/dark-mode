@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import useDarkMode from '../hooks/useDarkMode.js';
+import SearchForm from './SearchForm.jsx';
 
-const Navbar = () => {
+const Navbar = ({coinList, coin, handleChange}) => {
   const [darkMode, setDarkMode] = useDarkMode(false);
   const toggleMode = e => {
     e.preventDefault();
@@ -10,6 +11,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <h1>Crypto Tracker</h1>
+      <SearchForm coinList={coinList} coin={coin} handleChange={handleChange}/>
       <div className="dark-mode__toggle">
         <div
           onClick={toggleMode}
